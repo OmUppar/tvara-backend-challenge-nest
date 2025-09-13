@@ -1,25 +1,15 @@
-import {
-  IsOptional,
-  IsString,
-  IsJSON,
-  IsNumber,
-  IsBoolean,
-} from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsObject, IsNumber, IsBoolean } from 'class-validator';
 
 export class CreateInterviewTestDto {
-  @IsOptional()
-  @IsString()
-  name?: string;
+  @IsObject()
+  field_1: Record<string, any>; // <-- allows JSON object directly
 
-  @IsOptional()
-  @IsJSON()
-  field_1?: string;
-
-  @IsOptional()
   @IsNumber()
-  field_2?: number;
+  @Type(() => Number)
+  field_2: number;
 
-  @IsOptional()
   @IsBoolean()
-  field_3?: boolean;
+  @Type(() => Boolean)
+  field_3: boolean;
 }
