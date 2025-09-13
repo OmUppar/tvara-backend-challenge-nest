@@ -27,10 +27,10 @@ export class InterviewTestsService {
     return record;
   }
 
-  // async update(id: number, dto: UpdateInterviewTestDto) {
-  //   await this.repo.update(id, dto);
-  //   return this.findOne(id);
-  // }
+  async update(id: number, dto: UpdateInterviewTestDto) {
+    await this.repo.update(id, dto);
+    return this.findOne(id);
+  }
 
   async remove(id: number) {
     const record = await this.findOne(id);

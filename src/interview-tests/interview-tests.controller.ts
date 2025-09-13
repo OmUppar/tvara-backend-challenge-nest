@@ -58,13 +58,13 @@ export class InterviewTestsController {
   }
 
   // Update
-  // @Put(':id')
-  // async update(
-  //   @Param('id', ParseIntPipe) id: number,
-  //   @Body() dto: UpdateInterviewTestDto,
-  // ) {
-  //   return this.service.update(id, dto);
-  // }
+  @Put(':id')
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateInterviewTestDto,
+  ) {
+    return this.service.update(id, dto);
+  }
 
   // Delete
   @Delete(':id')
